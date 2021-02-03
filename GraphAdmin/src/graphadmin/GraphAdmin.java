@@ -1,11 +1,15 @@
 package graphadmin;
 
+import GUI.MainWindow;
 import GUI.Message;
 import PIE.Adviser;
 import PIE.Graph;
 import PIE.Member;
 import enums.Color;
 import enums.Phase;
+import java.awt.EventQueue;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class GraphAdmin {
     public static void main(String[] args) {
@@ -73,7 +77,16 @@ public class GraphAdmin {
         lupita.setGraphicName("Lupita");
         yomero.setGraphicName("Emilio");
         
+        //Asignación de ahijados
+        silvia.addGodchild(pablo);
+        silvia.addGodchild(eli);
+        silvia.addGodchild(diana);
+        silvia.addGodchild(dany);
+        mijefita.addGodchild(lety);
+        mijefita.addGodchild(lupita);
+        barcenas.addGodchild(yomero);
         
+        //Impresiones
         System.out.println(francisco);
         System.out.println(mauro);
         System.out.println(ruben);
@@ -97,6 +110,20 @@ public class GraphAdmin {
         //Prueba De gráfica
         Graph graph= new Graph(true, yomero, silvia, mijefita, barcenas);
         System.out.println(graph);
+        
+        
+        /* Set the Nimbus look and feel */
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");//"com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
+            System.out.println("No look and feel");
+        }
+        /* Create and display the form */
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainWindow().setVisible(true);
+            }
+        });
     }
     
 }

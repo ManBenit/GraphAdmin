@@ -57,6 +57,14 @@ public class Adviser extends Person implements Serializable{
         guests.remove(guest);
     }
     
+    public void addGodchild(Member member){
+        godchildren.add(member);
+    }
+    
+    public void deleteGodchild(Member member){
+        godchildren.remove(member);
+    }
+    
     public String getGodchildrenStatus(){
         StringBuilder sb= new StringBuilder("");
         
