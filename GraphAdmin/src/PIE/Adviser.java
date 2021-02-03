@@ -77,4 +77,15 @@ public class Adviser extends Person implements Serializable{
     public String getStartAdviserDate(){
         return new SimpleDateFormat(dateFormat).format(startAdviserDate.getTime());
     }
+    
+    @Override
+    public String toString(){
+        StringBuilder sb= new StringBuilder("");
+        
+        sb.append(super.toString());
+        sb.append(getColor()).append("\n");
+        sb.append(godchildren.size()).append(" ahijados\n");
+        
+        return sb.toString();
+    }
 }

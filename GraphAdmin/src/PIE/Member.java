@@ -1,5 +1,6 @@
 package PIE;
 
+import GUI.Message;
 import enums.Phase;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -13,7 +14,7 @@ import java.util.TimeZone;
 public class Member extends Person implements Serializable{
     private String gName;
     private Phase phase;
-    private LinkedList<Guest> guests, guestsInGraph;
+    private LinkedList<Guest> guests;
     private Calendar admissionDate;
     private String dateFormat="dd/MM/yyyy hh:mm:ss";
     private int investment;
@@ -22,7 +23,6 @@ public class Member extends Person implements Serializable{
     public Member(String name, String lastname, String mlastname, int age, String address, String employment, int investment) {
         super(name, lastname, mlastname, age, address, employment);
         guests= new LinkedList();
-        guestsInGraph= new LinkedList();
         this.investment= investment;
         admissionDate= new GregorianCalendar(TimeZone.getTimeZone("America/Mexico_City"));
     }
@@ -37,10 +37,6 @@ public class Member extends Person implements Serializable{
     
     public LinkedList<Guest> getGuestsList(){
         return guests;
-    }
-    
-    public LinkedList<Guest> getGuestsInGrap(){
-        return guestsInGraph;
     }
     
     public void setPhase(Phase phase){
@@ -71,11 +67,13 @@ public class Member extends Person implements Serializable{
         return investment;
     }
     
-    public void addGuestInGraph(Guest guest){
-        guestsInGraph.add(guest);
-    }
-    
-    public void deleteGuestInGraph(Guest guest){
-        guestsInGraph.remove(guest);
+    @Override
+    public String toString(){
+        StringBuilder sb= new StringBuilder("");
+        
+        sb.append(super.toString());
+        sb.append(getPhase()).append("\n");
+        
+        return sb.toString();
     }
 }

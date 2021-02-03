@@ -66,7 +66,7 @@ public class Person implements Serializable{
         sb.append(getFullName(true)).append("\n");
         sb.append(age).append(" años").append("\n");
         sb.append(address).append("\n");
-        sb.append(employment);
+        sb.append(employment).append("\n");
         
         return sb.toString();
     }
